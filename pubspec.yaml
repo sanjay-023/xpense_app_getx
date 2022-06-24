@@ -2,27 +2,31 @@ name: xpenseappstate
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment: 
+environment:
   sdk: '>=2.17.3 <3.0.0'
 
-dependencies: 
+dependencies:
+  auto_size_text: ^3.0.0
+  
   cupertino_icons: ^1.0.2
-  get: 4.6.5
-  flutter: 
+  flutter:
     sdk: flutter
-  shared_preferences: ^2.0.15
+  flutter_slidable: ^1.3.0
+  flutter_typeahead: ^4.0.0
+  get: 4.6.5
   google_fonts: ^3.0.1
   hive_flutter: ^1.1.0
-  auto_size_text: ^3.0.0
-  flutter_typeahead: ^4.0.0
+  
+  shared_preferences: ^2.0.15
 
-dev_dependencies: 
+dev_dependencies:
   flutter_lints: ^2.0.0
   lints: 2.0.0
-flutter_test: 
+  build_runner: ^2.1.11
+  hive_generator: ^1.1.3
+flutter_test:
   sdk: flutter
- 
-  
+
 flutter:
 
   # The following line ensures that the Material Icons font is
@@ -32,7 +36,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    
+
     - assets/images/xpenselogo.png
     - assets/images/
 
@@ -60,5 +64,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-
-

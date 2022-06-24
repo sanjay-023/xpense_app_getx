@@ -1,20 +1,14 @@
 import 'package:get/get.dart';
 
 class AllTransactionController extends GetxController {
-  //TODO: Implement AllTransactionController
+  RxString datFilterValue = 'All'.obs;
+  RxString yearFilterValue = 'Jan'.obs;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  RxString dropDownValue = 'All'.obs;
+
+  changeFilterValue(RxString dropDown, String newValue) {
+    dropDown.value = newValue;
+
+    update();
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 }

@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:xpenseappstate/app/modules/home/views/widget/common_widget.dart';
 
 // ignore: must_be_immutable
-class BalanceCard extends StatefulWidget {
+class BalanceCard extends StatelessWidget {
   int totalbal;
   int totalIncome;
   int totalExpense;
@@ -17,11 +17,6 @@ class BalanceCard extends StatefulWidget {
       required this.totalExpense})
       : super(key: key);
 
-  @override
-  State<BalanceCard> createState() => _BalanceCardState();
-}
-
-class _BalanceCardState extends State<BalanceCard> {
   @override
   @override
   Widget build(BuildContext context) {
@@ -47,7 +42,7 @@ class _BalanceCardState extends State<BalanceCard> {
           ),
           commonSizedBox(3.0),
           AutoSizeText(
-            '\u{20B9} ${widget.totalbal < 0 ? 0 : widget.totalbal} ',
+            '\u{20B9} ${totalbal < 0 ? 0 : totalbal} ',
             maxLines: 1,
             style: GoogleFonts.signikaNegative(
                 textStyle: const TextStyle(
@@ -80,7 +75,7 @@ class _BalanceCardState extends State<BalanceCard> {
                             style: TextStyle(color: Colors.white),
                           ),
                           AutoSizeText(
-                            '\u{20B9} ${widget.totalIncome}',
+                            '\u{20B9} $totalIncome',
                             maxLines: 1,
                             style: const TextStyle(
                                 color: Colors.white, fontSize: 20),
@@ -109,7 +104,7 @@ class _BalanceCardState extends State<BalanceCard> {
                           const Text('Expense',
                               style: TextStyle(color: Colors.white)),
                           AutoSizeText(
-                            '\u{20B9} ${widget.totalExpense}',
+                            '\u{20B9} $totalExpense',
                             maxLines: 1,
                             style: const TextStyle(
                                 color: Colors.white, fontSize: 20),

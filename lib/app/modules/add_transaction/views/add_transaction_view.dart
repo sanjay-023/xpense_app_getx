@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:xpenseappstate/app/data/controller/data_controller.dart';
+import 'package:xpenseappstate/app/data/model/transaction_model.dart';
 import 'package:xpenseappstate/app/modules/add_transaction/views/widget/amount_widget.dart';
 import 'package:xpenseappstate/app/modules/add_transaction/views/widget/category_widget.dart';
 import 'package:xpenseappstate/app/modules/add_transaction/views/widget/datepick_widget.dart';
@@ -58,8 +59,13 @@ class AddTransactionView extends GetView<AddTransactionController> {
                           if (amount == 0 || category.isEmpty) {
                             addTransactionController.showError();
                           } else {
-                            dataController.adddata(
-                                amount, selectedDate, category, type);
+                            final transaction = TransactionModel(
+                                amount: amount!,
+                                date: selectedDate,
+                                category: category,
+                                type: type);
+
+                            dataController.addData(transaction);
 
                             Get.offAll(DashView());
                             amount = 0;
