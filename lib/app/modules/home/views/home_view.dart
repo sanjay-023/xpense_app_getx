@@ -21,7 +21,6 @@ class HomeView extends GetView<HomeController> {
     final homeController = Get.put(HomeController());
     final dataController = Get.put(DataController());
 
-    //homeController.onInit();
     List<String> months = [
       "Jan",
       "Feb",

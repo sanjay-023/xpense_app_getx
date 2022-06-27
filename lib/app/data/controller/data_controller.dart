@@ -4,6 +4,7 @@ import 'package:xpenseappstate/app/data/model/transaction_model.dart';
 
 class DataController extends GetxController {
   RxList<TransactionModel> transactionDataList = <TransactionModel>[].obs;
+  int listIndex = 0;
   // Future adddata(
   //     int? amount, DateTime date, String category, String type) async {
   //   final box = Hive.box('money');
@@ -23,12 +24,31 @@ class DataController extends GetxController {
     print(transactionDb);
   }
 
+  void updateIndex(int index) {
+    listIndex = index;
+    update();
+  }
+
   void getAllData() async {
     final transactionDb =
         await Hive.openBox<TransactionModel>('transaction_db');
     transactionDataList.clear();
     transactionDataList.addAll(transactionDb.values);
     update();
+  }
+
+  deleteData(index) async {
+    final transactionDb =
+        await Hive.openBox<TransactionModel>('transaction_db');
+    transactionDb.deleteAt(index);
+    getAllData();
+  }
+
+  updateData(int index, TransactionModel value) async {
+    final transactionDb =
+        await Hive.openBox<TransactionModel>('transaction_db');
+    transactionDb.putAt(index, value);
+    getAllData();
   }
 }
 
