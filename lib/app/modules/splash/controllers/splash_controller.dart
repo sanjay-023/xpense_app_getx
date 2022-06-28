@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:xpenseappstate/app/modules/home/views/dash_view.dart';
 import 'package:xpenseappstate/app/modules/onboarding/views/onboarding_view.dart';
+import 'package:xpenseappstate/app/modules/settings/controllers/settings_controller.dart';
 import 'package:xpenseappstate/main.dart';
 
 class SplashController extends GetxController {
@@ -9,6 +10,7 @@ class SplashController extends GetxController {
   void onInit() {
     super.onInit();
     checkUserLoggedIn();
+    getCurrentAppTheme();
   }
 
   void gotoonboard() async {
@@ -26,5 +28,11 @@ class SplashController extends GetxController {
       await Future.delayed(const Duration(seconds: 3));
       Get.off(DashView());
     }
+  }
+
+  void getCurrentAppTheme() async {
+    final settingsController = Get.put(SettingsController());
+    settingsController.darkTheme =
+        await settingsController.darkThemePreferences.getTheme();
   }
 }

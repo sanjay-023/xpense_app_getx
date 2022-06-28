@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:xpenseappstate/app/data/controller/data_controller.dart';
 import 'package:xpenseappstate/app/modules/home/views/widget/common_widget.dart';
+import 'package:xpenseappstate/app/modules/statistics/views/statistics_view.dart';
+import 'package:xpenseappstate/app/modules/statistics/views/widget/chart_widget.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -13,7 +15,7 @@ var totalData;
 DateTime today = DateTime.now();
 DateTime now = DateTime.now();
 int monthIndex = 1;
-String statDropDownValue = 'Income';
+//String statDropDownValue = 'Income';
 
 class HomeView extends GetView<HomeController> {
   @override
@@ -35,7 +37,7 @@ class HomeView extends GetView<HomeController> {
       "Nov",
       "Dec"
     ];
-    statDropDownValue = 'Expense';
+    statDropDownValue.value = 'Expense';
     return Scaffold(
         body: SafeArea(
             child: Padding(
@@ -143,10 +145,10 @@ class HomeView extends GetView<HomeController> {
                     ],
                   ),
                   commonSizedBox(20.0),
-                  // ChartWidget(
-                  //   height: 300,
-                  //   entiredata: snapshot.data!,
-                  // ),
+                  ChartWidget(
+                    height: 300,
+                    entiredata: dataController.transactionDataList,
+                  ),
                   commonSizedBox(20.0),
                   Row(
                     children: const [

@@ -10,7 +10,8 @@ import 'package:xpenseappstate/app/modules/statistics/views/statistics_view.dart
 
 class DashView extends GetView {
   @override
-  Widget build(BuildContext context) {
+  // ignore: avoid_renaming_method_parameters
+  Widget build(BuildContext context1) {
     final dashController = Get.put(HomeController());
     final pages = [
       HomeView(),
@@ -62,12 +63,9 @@ class DashView extends GetView {
                         showUnselectedLabels: false,
                         currentIndex: dashController.currentSelectedIntex,
                         onTap: (newIntex) {
-                          // setState(() {
-                          //   _currentSelectedIntex = newIntex;
-                          // });
                           dashController.bottomIndex(newIntex);
                         },
-                        backgroundColor: Color.fromARGB(255, 220, 217, 217),
+                        backgroundColor: Theme.of(context1).primaryColor,
                         items: const [
                           BottomNavigationBarItem(
                               icon: Icon(
