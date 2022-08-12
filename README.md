@@ -1,16 +1,10 @@
-# xpenseappstate
+# Xpense App
 
-A new Flutter project.
+Xpense is a personal finance manager app, built to help you save money for future,developed with flutter.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+With Xpense app you can track your daily spending and daily income. The app will generate monthly and yearly report of your spending. The app is built in MVC architechture with Get X as state management and Hive as database.
 
-A few resources to get you started if this is your first Flutter project:
+##Libraries and packages uses
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
