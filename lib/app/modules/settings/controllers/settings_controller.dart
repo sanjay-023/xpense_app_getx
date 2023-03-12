@@ -14,8 +14,8 @@ class SettingsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    NotificationService().init(initScheduled: true);
-    listenNotifiication();
+    triggerNotification();
+   
   }
 
   DarkThemePreferences darkThemePreferences = DarkThemePreferences();
@@ -104,5 +104,11 @@ class SettingsController extends GetxController {
     // Navigator.of(context).push(MaterialPageRoute(builder: (ctx) {
     //   return const ScreenDash();
     // }));
+  }
+
+
+  triggerNotification()async{
+    await NotificationService().init(initScheduled: true);
+    listenNotifiication();
   }
 }

@@ -78,11 +78,12 @@ class ReminderBottomSheet extends StatelessWidget {
                 commonSizedBox(10.0),
                 ElevatedButton(
                     onPressed: () {
-                      // Navigator.of(context).pop();
+                      settingsController.setTimer();
+                       Navigator.of(context).pop();
                     },
                     child: const Text('Done'),
                     style: ElevatedButton.styleFrom(
-                        primary: const Color.fromARGB(255, 139, 9, 204),
+                        backgroundColor: const Color.fromARGB(255, 139, 9, 204),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20)),
                         minimumSize: const Size(150, 40)))
